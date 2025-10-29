@@ -1,9 +1,7 @@
 package com.example.WeatherApplication.contoller;
 
-import com.example.WeatherApplication.dto.WeatherDTO;
 import com.example.WeatherApplication.response.WeatherResponse;
 import com.example.WeatherApplication.service.WeatherService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

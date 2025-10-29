@@ -1,8 +1,6 @@
 package com.example.WeatherApplication.service;
 
-import com.example.WeatherApplication.dto.WeatherDTO;
 import com.example.WeatherApplication.response.WeatherResponse;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
