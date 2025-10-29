@@ -22,7 +22,7 @@ public class WeatherController {
     }
 
     @GetMapping("/{city}")
-    public ResponseEntity<WeatherDTO> getWeather(@PathVariable String city) {
+    public ResponseEntity<WeatherResponse> getWeather(@PathVariable String city) {
         return ResponseEntity.ok(weatherService.getWeatherByCity(city));
 
     }

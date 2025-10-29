@@ -20,7 +20,7 @@ public class WeatherService {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public WeatherDTO getWeatherByCity(String city) {
+    public WeatherResponse getWeatherByCity(String city) {
         String url = String.format("%s?q=%s&appid=%s&units=metric", apiURL, city.trim(), apiKey);
 
         WeatherResponse response = restTemplate.getForObject(url, WeatherResponse.class);
@@ -29,11 +29,7 @@ public class WeatherService {
             throw new RuntimeException("Failed to fetch weather data");
         }
 
-        return new WeatherDTO(
-                response.getName(),
-                response.getMain().getTemp(),
-                response.getWeather().get(0).getDescription()
-        );
+        return response;
     }
 
 
