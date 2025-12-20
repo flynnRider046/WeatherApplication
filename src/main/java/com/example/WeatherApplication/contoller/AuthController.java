@@ -1,6 +1,7 @@
 package com.example.WeatherApplication.contoller;
 
 import com.example.WeatherApplication.entity.AuthRequest;
+import com.example.WeatherApplication.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +14,8 @@ public class AuthController {
 
     @Autowired
     AuthenticationManager authenticationManager;
+    @Autowired
+    JWTUtil jwtUtil;
 
     @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest authRequest){
@@ -23,6 +26,7 @@ public class AuthController {
                             authRequest.getPassword()
                     )
             );
+            return jwtUtil.generateToken(authRequest.getUserName());
         } catch (Exception e){
             throw e;
         }
